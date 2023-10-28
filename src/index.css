@@ -49,6 +49,7 @@ html {
 }
 body {
   background: #ffffff;
+  scroll-behavior: smooth;
 }
 
 .RoundButton {

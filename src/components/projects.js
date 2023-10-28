@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import * as Unicons from "@iconscout/react-unicons";
 import IndividualProjects from "./individualProject.js";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Projects() {
   return (
-    <Container>
-      <ProjectsArea>
+    <Container id="Projects">
+      <ProjectsArea data-aos="fade-up">
         <IndividualProjects
           image="../Assets/Netflix.png"
           title="Netflix Clone"
@@ -86,5 +87,6 @@ const ProjectsArea = styled.div`
   box-sizing: border-box;
   flex-wrap: wrap;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
 `;

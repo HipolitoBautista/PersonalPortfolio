@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../index.css";
 import styled from "styled-components";
 import * as Unicons from "@iconscout/react-unicons";
+import { scrollToSection } from "../helpers/utilities";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-function hero() {
+function Hero() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Container>
-      <Hero>
+      <HeroContainer>
         {/* Container with all the left side content */}
         <LeftContent>
           <h1>
@@ -22,20 +28,20 @@ function hero() {
           {/* Call to action (CTA) */}
           <CTA>
             {/* Contact Me Btn */}
-            <PrimaryBtn>Contact Me</PrimaryBtn>
+            <PrimaryBtn
+              onClick={() => {
+                scrollToSection("ContactMe");
+              }}
+            >
+              <p>Contact Me</p>
+            </PrimaryBtn>
 
             {/* Who Am I Btn */}
-            <SecondaryBtn>
-              <img src="../Assets/ios-play.svg"></img>
-              <div>
-                Who Am I<hr></hr>
-              </div>
-            </SecondaryBtn>
           </CTA>
         </LeftContent>
 
         {/* Container with all the right side content */}
-        <RightContent>
+        <RightContent data-aos="fade-up" data-aos-duration="2500">
           {/* Supplimental Content Container */}
           <SupplimentalContainer>
             <h4>Turning Your ideas into digital solutions</h4>
@@ -48,11 +54,13 @@ function hero() {
               src="../Assets/HeroImg.png"
               className="HeroImg"
               alt="Hero Image"
+              data-aos="fade-up"
             />
             <img
               src="../Assets/HeroImg-Background.png"
               className="HeroBackground"
               alt="Hero Image Background"
+              data-aos="fade-up"
             />
           </MainImage>
 
@@ -83,7 +91,7 @@ function hero() {
             </div>
           </ServiceDescriptions>
         </RightContent>
-      </Hero>
+      </HeroContainer>
     </Container>
   );
 }
@@ -94,7 +102,7 @@ const Container = styled.div`
   display: flex;
 `;
 
-const Hero = styled.div`
+const HeroContainer = styled.div`
   margin: 8rem 4rem;
   display: flex;
   width: 100vw;
@@ -217,11 +225,36 @@ const PrimaryBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--Primary-White);
   background-color: var(--Primary-Blue);
+  border: 2px solid var(--Primary-Blue);
+  color: var(--Primary-White);
   border-radius: 500px;
   width: 13rem;
   height: 4rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: 500px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--Primary-White);
+
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+  &:hover {
+    color: var(--Primary-Blue) !important;
+  }
+  p {
+    z-index: 5;
+  }
 `;
 
 const SecondaryBtn = styled.div`
@@ -253,5 +286,25 @@ const SecondaryBtn = styled.div`
     padding: 0;
     color: var(--Primary-Blue);
   }
+
+  a {
+    position: relative;
+    text-decoration: none;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--Primary-Blue);
+    transition: width 0.3s ease-in-out;
+  }
+
+  & a:hover::before {
+    width: 100%;
+  }
 `;
-export default hero;
+export default Hero;

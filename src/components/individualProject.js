@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import * as Unicons from "@iconscout/react-unicons";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function IndividualProjects({ image, title, subTitle, primaryColor, invert }) {
   const projectDetailsColor =
     invert == "true" ? "var(--Primary-Blue)" : "var(--Primary-White)";
 
   return (
-    <IndividualProject>
+    <IndividualProject data-aos="fade-up">
       <div>
         <img src={image} alt="" />
       </div>
@@ -35,6 +37,7 @@ export default IndividualProjects;
 const IndividualProject = styled.div`
   width: 30vw;
   height: auto;
+  margin: 0.5rem;
   position: relative;
 
   img {

@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import Nav from "./nav";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Footer() {
   return (
     <Container>
       <FooterContent>
-        <LeftContent>
+        <LeftContent data-aos="zoom-out" data-aos-duration="1500">
           <div className="Title">
             <h2>Hipolito Bautista</h2>
           </div>
@@ -36,7 +39,11 @@ function Footer() {
             </div>
           </div>
         </LeftContent>
-        <RightContent>
+        <RightContent
+          id="ContactMe"
+          data-aos="zoom-out"
+          data-aos-duration="1500"
+        >
           <h2>Take Me To Your Leader</h2>
 
           <form action="" method="POST">
@@ -71,6 +78,7 @@ function Footer() {
           </form>
         </RightContent>
       </FooterContent>
+      <Nav />
     </Container>
   );
 }
@@ -82,6 +90,17 @@ const Container = styled.div`
   background-color: var(--Primary-Blue);
   color: var(--Primary-White);
   font-family: var(--Eina-Bold);
+
+  .NavContainer {
+    justify-content: flex-start !important;
+    &::before {
+      content: "";
+      display: block;
+      width: 90%;
+      border-top: 2px solid var(--Primary-White);
+      margin: 0 auto 1rem auto;
+    }
+  }
 `;
 const FooterContent = styled.div`
   width: 100vw;

@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import * as Unicons from "@iconscout/react-unicons";
 import { UilArrowUpRight } from "@iconscout/react-unicons";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function AboutMe() {
   return (
     <Container>
-      <About>
+      <About id="AboutMe">
         {/* Content on the upper half of the page. */}
-        <UpperContent>
+        <UpperContent data-aos="fade-up">
           {/* Large Header */}
           <h1>
             Pursuing <br />
@@ -36,7 +38,7 @@ function AboutMe() {
         </UpperContent>
 
         {/* Content on the lower half of the page */}
-        <LowerContent>
+        <LowerContent data-aos="fade-up">
           <p>
             I am Hipolito Bautista, a Web Developer based in Belmopan, Belize. I
             am Equipped with a comprehensive understanding of both front-end and
@@ -99,7 +101,7 @@ const List = styled.div`
   margin-right: auto;
   width: 18rem;
 `;
-const ListItem = styled.div`
+const ListItem = styled.a`
   display: flex;
   justify-content: space-between;
   align-self: flex-end;
@@ -110,7 +112,27 @@ const ListItem = styled.div`
   font-family: var(--Eina-SemiBold);
   font-size: 1.25rem;
   color: var(--Beige);
-  border-bottom: 1px solid var(--Beige);
+
+  position: relative;
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--Beige);
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    width: 0%;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 const LowerContent = styled.div`
   column-count: 2;
