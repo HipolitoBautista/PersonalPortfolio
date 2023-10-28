@@ -1,13 +1,75 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: Eina-Regular;
+  src: url(../public/Fonts/Eina01-Regular.ttf);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: Eina-Regular-Italic;
+  src: url(../public/Fonts/Eina01-RegularItalic.ttf);
+}
+
+@font-face {
+  font-family: Eina-SemiBold;
+  src: url(../public/Fonts/Eina01-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Eina-SemiBold-Italic;
+  src: url(../public/Fonts/Eina01-SemiboldItalic.ttf);
+}
+
+@font-face {
+  font-family: Eina-Bold;
+  src: url(../public/Fonts/Eina01-Bold.ttf);
+}
+
+@font-face {
+  font-family: Eina-Bold-Italic;
+  src: url(../public/Fonts/Eina01-BoldItalic.ttf);
+}
+:root {
+  --Eina-Regular: "Eina-Regular", serif;
+  --Eina-Regular-Italic: "Eina-Regular-Italic";
+  --Eina-SemiBold: "Eina-SemiBold";
+  --Eina-SemiBold-Italic: "Eina-SemiBold-Italic";
+  --Eina-Bold: "Eina-Bold";
+  --Eina-Bold-Italic: "Eina-Bold-Italic";
+
+  --Primary-Blue: #1d2132;
+  --Primary-White: #fff;
+  --Beige: #a98f6b;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+}
+body {
+  background: #ffffff;
+}
+
+.RoundButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RoundButton .Icon {
+  background-color: var(--Primary-White);
+  padding: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--Primary-Blue);
+  border-radius: 100px;
+  color: red;
+}
+
+.Icon {
+  border: 1.5px solid var(--Primary-Blue);
+  background-color: var(--Primary-White);
+  border-radius: 100px;
+  padding: 0.5rem;
 }
