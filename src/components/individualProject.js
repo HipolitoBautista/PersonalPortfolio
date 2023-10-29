@@ -3,13 +3,52 @@ import styled from "styled-components";
 import * as Unicons from "@iconscout/react-unicons";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useModal from "../modals/useModal.js";
+import Modal from "./modal.js";
 
-function IndividualProjects({ image, title, subTitle, primaryColor, invert }) {
+function IndividualProjects({
+  description,
+  image,
+  title,
+  subTitle,
+  primaryColor,
+  btn1,
+  btn1link,
+  btn2,
+  btn2link,
+  tech1,
+  tech2,
+  tech3,
+  onOpenTriggered,
+  openModalHandler,
+  invert,
+}) {
+  const { openModal, setOpenModal } = useModal();
+
   const projectDetailsColor =
     invert == "true" ? "var(--Primary-Blue)" : "var(--Primary-White)";
 
+  const handleProjectClick = () => {
+    openModalHandler(
+      description,
+      image,
+      title,
+      subTitle,
+      primaryColor,
+      btn1,
+      btn1link,
+      btn2,
+      btn2link,
+      tech1,
+      tech2,
+      tech3
+    );
+    onOpenTriggered();
+    document.documentElement.style.overflow = "hidden";
+  };
+
   return (
-    <IndividualProject data-aos="fade-up">
+    <IndividualProject data-aos="fade-up" onClick={handleProjectClick}>
       <div>
         <img src={image} alt="" />
       </div>
@@ -20,13 +59,13 @@ function IndividualProjects({ image, title, subTitle, primaryColor, invert }) {
           <p className="SubTitle">{subTitle}</p>
         </div>
 
-        <div>
+        <a onClick={handleProjectClick}>
           <Unicons.UilArrowUpRight
             size="1.25rem"
             color="var(--Primary-Blue)"
             className="Icon"
           />
-        </div>
+        </a>
       </ProjectDetails>
     </IndividualProject>
   );
@@ -39,11 +78,15 @@ const IndividualProject = styled.div`
   height: auto;
   margin: 0.5rem;
   position: relative;
-
+  border-radius: 2rem;
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  &:hover {
+    transform: scale(2);
   }
 `;
 
@@ -69,5 +112,13 @@ const ProjectDetails = styled.div`
 
   .Icon {
     border: none;
+  }
+
+  a {
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `;

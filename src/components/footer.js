@@ -15,10 +15,24 @@ function Footer() {
 
           <div className="Links">
             <div className="SingleLink">
-              <img src="../Assets/LinkedIn.png" alt="" className="Icon" />
-              <img src="../Assets/GithubIcon.svg" alt="" className="Icon" />
-              <img src="../Assets/Insta.png" alt="" className="Icon" />
-              <img src="../Assets/Facebook.png" alt="" className="Icon" />
+              <a
+                href="https://www.linkedin.com/in/hipolito-bautista-409431234/"
+                target="_blank"
+              >
+                <img src="../Assets/LinkedIn.png" alt="" className="Icon" />
+              </a>
+
+              <a href="https://github.com/HipolitoBautista" target="_blank">
+                <img src="../Assets/Github.png" alt="" className="Icon" />
+              </a>
+
+              <a href="https://www.facebook.com/hip.bau.7/" target="_blank">
+                <img src="../Assets/Facebook.png" alt="" className="Icon" />
+              </a>
+
+              <a href="https://www.instagram.com/hip_bau12/" target="_blank">
+                <img src="../Assets/Insta.png" alt="" className="Icon" />
+              </a>
             </div>
           </div>
 
@@ -74,7 +88,9 @@ function Footer() {
               required
             ></textarea>
 
-            <input type="submit" value="Submit" />
+            <a>
+              <input type="submit" value="Submit" />
+            </a>
           </form>
         </RightContent>
       </FooterContent>
@@ -154,6 +170,28 @@ const LeftContent = styled.div`
 `;
 const RightContent = styled.div`
   flex: 0.5;
+
+  a {
+    position: relative;
+    text-decoration: none;
+    color: var(--Primary-White);
+    width: fit-content;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--Primary-White);
+    transition: width 0.3s ease-in-out;
+  }
+
+  a:hover::before {
+    width: 100%;
+  }
   form {
     display: flex;
     flex-direction: column;

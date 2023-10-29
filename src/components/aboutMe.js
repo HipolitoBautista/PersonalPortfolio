@@ -18,17 +18,26 @@ function AboutMe() {
           </h1>
           <List>
             {/* The beige list items found on the left */}
-            <ListItem>
+            <ListItem
+              href="https://www.linkedin.com/in/hipolito-bautista-409431234/"
+              target="_blank"
+            >
               <h4>LinkedIn</h4>
               <Unicons.UilArrowUpRight size="1.25rem" />
             </ListItem>
 
-            <ListItem>
-              <h4>Instagram</h4>
+            <ListItem
+              href="https://github.com/HipolitoBautista"
+              target="_blank"
+            >
+              <h4>Github</h4>
               <Unicons.UilArrowUpRight size="1.25rem" />
             </ListItem>
 
-            <ListItem>
+            <ListItem
+              href="https://www.facebook.com/hip.bau.7/"
+              target="_blank"
+            >
               <h4>Facebook</h4>
               <Unicons.UilArrowUpRight size="1.25rem" />
             </ListItem>

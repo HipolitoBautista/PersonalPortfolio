@@ -18,10 +18,6 @@ function Nav() {
           <a onClick={() => scrollToSection("Projects")}>Projects</a>
         </NavItem>
         <NavItem>
-          <Unicons.UilPen size="1.1rem" color="var(--Primary-White)" />
-          <a onClick={() => scrollToSection("Projects")}>Design</a>
-        </NavItem>
-        <NavItem>
           <Unicons.UilPuzzlePiece size="1.1rem" color="var(--Primary-White)" />
           <a onClick={() => scrollToSection("Skills")}>Skills</a>
         </NavItem>
